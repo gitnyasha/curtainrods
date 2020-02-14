@@ -1,0 +1,33 @@
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+<h1>Curtains</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @curtains.each do |curtain| %>
+      <%= image_tag(curtain.image_url(:default)) %>
+      <tr>
+        <td><%= curtain.name %></td>
+        <td><%= curtain.description %></td>
+        <td><%= curtain.price %></td>
+        <td><%= link_to 'Show', curtain %></td>
+        <td><%= link_to 'Edit', edit_curtain_path(curtain) %></td>
+        <td><%= link_to 'Destroy', curtain, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Curtain', new_curtain_path %>
+</div>

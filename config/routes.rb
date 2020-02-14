@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :blinds
+  resources :curtains
   resources :products
   devise_for :users, controllers: {
     registrations: 'registrations'

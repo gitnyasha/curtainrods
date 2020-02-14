@@ -8,13 +8,53 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<%= stylesheet_link_tag href="https://www.w3schools.com/w3css/4/w3.css" %>
-<%= stylesheet_link_tag href="https://fonts.googleapis.com/css?family=Poppins" %>
+    <%= stylesheet_link_tag href="https://www.w3schools.com/w3css/4/w3.css" %>
+    <%= stylesheet_link_tag href="https://fonts.googleapis.com/css?family=Poppins" %>
   </head>
 
   <body>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
+  <nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+  <div class="w3-container">
+    <h3 class="w3-padding-64"><b>Curtainrodssolutions</b></h3>
+  </div>
+  <div class="w3-bar-block">
+      <%= link_to "Home", root_path, :class => "w3-bar-item w3-button w3-hover-white" %>    
+      <%= link_to "Rods", 'products#index', :class => "w3-bar-item w3-button w3-hover-white" %>    
+      <%= link_to "Blinds", 'blinds#index', :class => "w3-bar-item w3-button w3-hover-white" %>    
+      <%= link_to "Curtains", 'curtains#index', :class => "w3-bar-item w3-button w3-hover-white" %>    
+    <a href="#designers" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">About Us</a> 
+    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a>
+    <% if user_signed_in? %>
+
+    <div class="navbar-account" id="user-link">
+      <%= link_to 'Account', edit_user_registration_path, class: "w3-hover-opacity" %>
+      <div class="navbar-dropdown is-right">
+        <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"w3-hover-opacity" %>
+      </div>
+    </div>
+    <% else %>
+    
+    <%= link_to "Sign In", new_user_session_path, class:"w3-hover-opacity" %>
+    <%= link_to "Sign up", new_user_registration_path, class:"w3-hover-opacity"%>
+    
+    <% end %>
+  </div>
+</nav>
+
+<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
+  <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
+  <span>Curtainrodssolutions</span>
+</header>
+
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
     <%= yield %>
+    <div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px">
+
+<p class="w3-right">&copy; 2020 <a href="#" title="W3.CSS" target="_blank" class="w3-hover-opacity">Curtainrodssolutions</a></p></div>
+
   </body>
 </html>

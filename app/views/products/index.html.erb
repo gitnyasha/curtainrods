@@ -12,7 +12,7 @@
   </thead>
 </table>
     <% @products.each do |product| %>
-      <%= image_tag(@product.image_url(:default)) %>
+      <%= image_tag(product.image_url(:default)) %>
 
       <%= product.name %>
       <%= product.description %>

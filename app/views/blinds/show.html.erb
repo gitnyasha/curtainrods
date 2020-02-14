@@ -1,0 +1,21 @@
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+<%= image_tag(@blind.image_url(:default)) %>
+<p>
+  <strong>Name:</strong>
+  <%= @blind.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @blind.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @blind.price %>
+</p>
+
+<%= link_to 'Edit', edit_blind_path(@blind) %> |
+<%= link_to 'Back', blinds_path %>
+</div>

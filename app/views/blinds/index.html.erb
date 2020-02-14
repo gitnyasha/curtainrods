@@ -1,0 +1,33 @@
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+<h1>Blinds</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @blinds.each do |blind| %>
+      <%= image_tag(blind.image_url(:default)) %>
+      <tr>
+        <td><%= blind.name %></td>
+        <td><%= blind.description %></td>
+        <td><%= blind.price %></td>
+        <td><%= link_to 'Show', blind %></td>
+        <td><%= link_to 'Edit', edit_blind_path(blind) %></td>
+        <td><%= link_to 'Destroy', blind, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Blind', new_blind_path %>
+</div>
