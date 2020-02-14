@@ -15,7 +15,8 @@
   <strong>Price:</strong>
   <%= @blind.price %>
 </p>
-
-<%= link_to 'Edit', edit_blind_path(@blind) %> |
+<% if user_signed_in? %>
+<%= link_to 'Edit', edit_blind_path(@blind) %>
+<% end %> |
 <%= link_to 'Back', blinds_path %>
 </div>

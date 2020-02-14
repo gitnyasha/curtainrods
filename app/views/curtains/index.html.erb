@@ -20,14 +20,19 @@
         <td><%= curtain.description %></td>
         <td><%= curtain.price %></td>
         <td><%= link_to 'Show', curtain %></td>
+        <% if user_signed_in? %>
         <td><%= link_to 'Edit', edit_curtain_path(curtain) %></td>
         <td><%= link_to 'Destroy', curtain, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <% end %>
+        </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+<% if user_signed_in? %>
 
 <%= link_to 'New Curtain', new_curtain_path %>
+
+<% end %>
 </div>

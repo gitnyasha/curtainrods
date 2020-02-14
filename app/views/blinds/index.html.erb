@@ -20,14 +20,18 @@
         <td><%= blind.description %></td>
         <td><%= blind.price %></td>
         <td><%= link_to 'Show', blind %></td>
+        <% if user_signed_in? %>
         <td><%= link_to 'Edit', edit_blind_path(blind) %></td>
         <td><%= link_to 'Destroy', blind, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <% end %>
+        </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+<% if user_signed_in? %>
 
 <%= link_to 'New Blind', new_blind_path %>
+<% end %>
 </div>

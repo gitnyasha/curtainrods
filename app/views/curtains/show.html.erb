@@ -16,7 +16,8 @@
   <strong>Price:</strong>
   <%= @curtain.price %>
 </p>
-
-<%= link_to 'Edit', edit_curtain_path(@curtain) %> |
+<% if user_signed_in? %>
+<%= link_to 'Edit', edit_curtain_path(@curtain) %>
+<% end %> |
 <%= link_to 'Back', curtains_path %>
 </div>

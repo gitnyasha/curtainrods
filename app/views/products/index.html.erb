@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
 
 <h1>Products</h1>
 <table>
@@ -12,16 +12,22 @@
   </thead>
 </table>
     <% @products.each do |product| %>
+      <div class="w3-row-padding">
       <%= image_tag(product.image_url(:default)) %>
+      </div>
 
       <%= product.name %>
       <%= product.description %>
       <%= product.price %>
       <%= link_to 'Show', product %>
+      <% if user_signed_in? %>
       <%= link_to 'Edit', edit_product_path(product) %>
       <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
     <% end %>
 
 <br>
-
-<%= link_to 'New Product', new_product_path %>
+<% if user_signed_in? %>
+<%= link_to 'Enter new curtain rod', new_product_path %>
+<% end %>
+</div>
