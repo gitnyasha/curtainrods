@@ -1,0 +1,32 @@
+	<section class="intro-section">
+		<div class="container text-center">
+			<div class="row">
+				<div class="col-xl-10 offset-xl-1">
+					<h2 class="section-title">Quality blinds</h2>
+				</div>
+			</div>
+		</div>
+	</section>
+<div class="container-fluid p-md-0 ">
+			<div class="row portfolios-area">
+          <% @blinds.each do |blind| %>
+				<div class="mix col-lg-6 col-md-6 web">
+            <%= image_tag(blind.image_url(:default), class: "portfolio-item set-bg") %>
+				</div>
+			    <%= blind.name %>
+      <%= blind.description %>
+      <%= blind.price %>
+      <%= link_to "Show", blind %>
+      <% if user_signed_in? %>
+      <%= link_to "Edit", edit_blind_path(blind) %>
+      <%= link_to "Destroy", blind, method: :delete, data: { confirm: "Are you sure?" } %>
+      <% end %>
+          <% end %>
+			</div>
+		</div>
+	</section>
+<% if user_signed_in? %>
+
+<%= link_to "New Blind", new_blind_path, class: "site-btn" %>
+<% end %>
+</div>

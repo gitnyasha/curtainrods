@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Curtainrods</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", media: "all", 'data-turbolinks-track': "reload" %>
+    <%= javascript_pack_tag "application", 'data-turbolinks-track': "reload" %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= stylesheet_link_tag href = "https://www.w3schools.com/w3css/4/w3.css" %>
+    <%= stylesheet_link_tag href = "https://fonts.googleapis.com/css?family=Poppins" %>
+  </head>
+
+  <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+  <div class="container">
+    <%= link_to "Curtainrodssolutions", root_path, class: "navbar-brand" %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+        <%= link_to "Home", root_path, :class => "nav-link" %> 
+        </li>
+        <li class="nav-item">
+          <%= link_to "Rods", "/products", :class => "nav-link" %> 
+        </li>
+        <li class="nav-item">
+          <%= link_to "Blinds", "/blinds", :class => "nav-link" %> 
+        </li>
+        <li class="nav-item">
+         <%= link_to "Curtains", "/curtains", :class => "nav-link" %> 
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    <%= yield %>
+  <!-- footer section start -->
+	<footer class="footer-section text-center">
+		<div class="container">
+			<h2 class="section-title mb-5">Contact Us</h2>
+			<a href="" class="site-btn">Get in touch</a>
+			<div class="social-links">
+				<a href=""><span class="fa fa-pinterest"></span></a>
+				<a href=""><span class="fa fa-linkedin"></span></a>
+				<a href=""><span class="fa fa-instagram"></span></a>
+				<a href=""><span class="fa fa-facebook"></span></a>
+				<a href=""><span class="fa fa-twitter"></span></a>
+			</div>
+			<div class="copyright">
+    Copyright &copy; 2020 All rights reserved | Curtainrodssolutions
+</div>
+		</div>
+	</footer>
+  </body>
+</html>
